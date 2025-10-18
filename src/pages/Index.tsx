@@ -14,7 +14,7 @@ const Index = () => {
       <div className="container max-w-6xl mx-auto px-4 py-12">
         <header className="text-center mb-16 pt-8">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-            Welcome to Environmental Buddy
+            Info Hub
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Learn about the environment through interactive mind maps and engaging dialogues

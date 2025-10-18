@@ -11,7 +11,6 @@ import Quiz from "./pages/Quiz";
 import Tasks from "./pages/Tasks";
 import Events from "./pages/Events";
 import Analytics from "./pages/Analytics";
-import InfoHub from "./pages/InfoHub";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -32,7 +31,7 @@ const App = () => (
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/events" element={<Events />} />
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/info-hub" element={<InfoHub />} />
+          <Route path="/info-hub" element={<Index />} />
           <Route path="/login" element={<Login />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
