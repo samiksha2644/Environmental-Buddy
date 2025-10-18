@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { MessageSquare, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import FloatingChatbot from "@/components/FloatingChatbot";
+import Navbar from "@/components/Navbar";
 import character1 from "@/assets/character1.png";
 import character2 from "@/assets/character2.png";
 
@@ -12,39 +12,49 @@ const Dialogue = () => {
   const [topic, setTopic] = useState("");
   const [dialogueGenerated, setDialogueGenerated] = useState(false);
   const [dialogue, setDialogue] = useState<Array<{ character: number; text: string }>>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const generateDialogue = () => {
     if (topic.trim()) {
       setDialogueGenerated(true);
+      setCurrentIndex(0);
       // Placeholder dialogue - will be connected to AI API later
       setDialogue([
         { character: 1, text: `Hey! I've been learning about ${topic}. It's really interesting!` },
         { character: 2, text: "That sounds cool! Can you tell me more about it?" },
         { character: 1, text: "Sure! Let me explain the key concepts..." },
         { character: 2, text: "I think I'm starting to understand now. Thanks for explaining!" },
+        { character: 1, text: "There's actually a lot more depth to this topic." },
+        { character: 2, text: "Wow, I never realized how complex this could be!" },
       ]);
       console.log("Generating dialogue for:", topic);
     }
   };
 
+  const handleNext = () => {
+    if (currentIndex + 2 < dialogue.length) {
+      setCurrentIndex(currentIndex + 2);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentIndex - 2 >= 0) {
+      setCurrentIndex(currentIndex - 2);
+    }
+  };
+
+  const visibleDialogue = dialogue.slice(currentIndex, currentIndex + 2);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/30">
+      <Navbar />
       <FloatingChatbot />
       
       <div className="container max-w-4xl mx-auto px-4 py-8">
-        <Link 
-          to="/" 
-          className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors"
-        >
-          ← Back to Home
-        </Link>
 
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full mb-4 animate-float">
-            <MessageSquare className="w-8 h-8 text-primary-foreground" />
-          </div>
-          <h1 className="text-4xl font-bold mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Dialogue Generator
+          <h1 className="text-4xl font-bold mb-3 text-foreground">
+            Generate a Dialogue
           </h1>
           <p className="text-muted-foreground text-lg">
             Learn through conversation between characters
@@ -99,9 +109,9 @@ const Dialogue = () => {
                   </div>
                 </div>
 
-                {dialogue.map((line, index) => (
+                {visibleDialogue.map((line, index) => (
                   <div
-                    key={index}
+                    key={currentIndex + index}
                     className={`flex gap-4 ${line.character === 2 ? "flex-row-reverse" : ""}`}
                   >
                     <img
@@ -120,6 +130,27 @@ const Dialogue = () => {
                     </div>
                   </div>
                 ))}
+
+                <div className="flex justify-center gap-4 mt-8">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={handlePrevious}
+                    disabled={currentIndex === 0}
+                  >
+                    <ChevronLeft className="w-5 h-5 mr-2" />
+                    Previous
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={handleNext}
+                    disabled={currentIndex + 2 >= dialogue.length}
+                  >
+                    Next
+                    <ChevronRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
 
                 <p className="text-center text-sm text-muted-foreground mt-6">
                   AI-powered dialogue generation coming soon...

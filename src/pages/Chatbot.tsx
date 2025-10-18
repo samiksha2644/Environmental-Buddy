@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Send, Bot } from "lucide-react";
-import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 import chatbotIcon from "@/assets/chatbot-icon.png";
 
 interface Message {
@@ -46,13 +46,8 @@ const Chatbot = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/30">
-      <div className="container max-w-4xl mx-auto px-4 py-8 h-screen flex flex-col">
-        <Link 
-          to="/" 
-          className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors"
-        >
-          ← Back to Home
-        </Link>
+      <Navbar />
+      <div className="container max-w-4xl mx-auto px-4 py-8 h-[calc(100vh-4rem)] flex flex-col">
 
         <Card className="flex-1 flex flex-col shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden">
           <div className="bg-gradient-to-br from-primary to-accent p-4 flex items-center gap-3">

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Brain, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Sparkles } from "lucide-react";
 import FloatingChatbot from "@/components/FloatingChatbot";
+import Navbar from "@/components/Navbar";
 
 const MindMap = () => {
   const [concept, setConcept] = useState("");
@@ -20,22 +20,14 @@ const MindMap = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/30">
+      <Navbar />
       <FloatingChatbot />
       
       <div className="container max-w-4xl mx-auto px-4 py-8">
-        <Link 
-          to="/" 
-          className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors"
-        >
-          ← Back to Home
-        </Link>
 
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full mb-4 animate-float">
-            <Brain className="w-8 h-8 text-primary-foreground" />
-          </div>
-          <h1 className="text-4xl font-bold mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Mind Map Generator
+          <h1 className="text-4xl font-bold mb-3 text-foreground">
+            Generate a Mind Map
           </h1>
           <p className="text-muted-foreground text-lg">
             Visualize concepts and their connections
