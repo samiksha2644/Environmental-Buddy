@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import { Moon } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/env-buddy-logo.png";
 
 const Navbar = () => {
+  const { theme, setTheme } = useTheme();
+  
   const navItems = [
     { name: "Quiz & Learning", path: "/quiz" },
     { name: "Tasks", path: "/tasks" },
@@ -11,6 +14,10 @@ const Navbar = () => {
     { name: "Analytics", path: "/analytics" },
     { name: "Info Hub", path: "/info-hub" },
   ];
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <nav className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
@@ -40,9 +47,17 @@ const Navbar = () => {
               </Button>
             </Link>
 
-            {/* Dark Mode / Settings Icon */}
-            <button className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors">
-              <Moon className="w-4 h-4 text-muted-foreground" />
+            {/* Dark Mode Toggle */}
+            <button 
+              onClick={toggleTheme}
+              className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4 text-muted-foreground" />
+              ) : (
+                <Moon className="w-4 h-4 text-muted-foreground" />
+              )}
             </button>
           </div>
         </div>
