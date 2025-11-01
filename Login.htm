@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco Quest - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* 🌿 Global Eco Quest Theme */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-container::before {
+      content: "🌳";
+      font-size: 5rem;
+      position: absolute;
+      top: -20px;
+      right: 20px;
+      opacity: 0.15;
+    }
+
+    h1 {
+      color: #34a853;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 600;
+      color: #555;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #81c784;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #34a853;
+      box-shadow: 0 0 6px #81c784;
+    }
+
+    button {
+      background: linear-gradient(90deg, #34a853, #fdd835);
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 25px;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .leaf-decor {
+      position: absolute;
+      left: -30px;
+      bottom: -30px;
+      font-size: 3rem;
+      opacity: 0.15;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .login-container:hover {
+      animation: float 3s ease-in-out infinite;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="leaf-decor">🍃</div>
+    <h1>Welcome to Eco Quest</h1>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+
+      <label for="registration">Registered Through</label>
+      <select id="registration" required>
+        <option value="" disabled selected>Select an option</option>
+        <option value="school">School</option>
+        <option value="individual">Individually</option>
+      </select>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" placeholder="Enter your age" min="5" max="100" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+
+      <button type="submit">🌿 Login</button>
+    </form>
+    <p class="footer-text">Don’t have an account? <a href="#" style="color:#34a853; text-decoration:none; font-weight:600;">Register Now</a></p>
+  </div>
+</body>
+</html>

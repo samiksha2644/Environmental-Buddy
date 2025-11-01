@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco Quest - Task 4: Litter Treasure Hunt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .task-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      width: 90%;
+      max-width: 650px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .task-container::before {
+      content: "🗑️";
+      font-size: 5rem;
+      position: absolute;
+      top: -10px;
+      right: 25px;
+      opacity: 0.15;
+    }
+
+    .progress-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 150px;
+      background: #fff8e1;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 12px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #f57c00, #fdd835);
+      width: 16%; /* Task 4 of 25 */
+      transition: width 0.4s ease-in-out;
+    }
+
+    .task-number {
+      position: absolute;
+      top: 35px;
+      left: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #ef6c00;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ef6c00;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    input[type="number"], input[type="file"] {
+      display: block;
+      margin: 15px auto;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 2px solid #ffe082;
+      width: 80%;
+      transition: all 0.3s ease;
+    }
+
+    input[type="number"]:focus, input[type="file"]:hover {
+      border-color: #f57c00;
+      background: #fffde7;
+    }
+
+    button {
+      display: block;
+      margin: 25px auto 0;
+      background: linear-gradient(90deg, #f57c00, #fdd835);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .emoji {
+      font-size: 2rem;
+      margin-top: 15px;
+      text-align: center;
+      display: none;
+      animation: bounce 1.5s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .proof-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    audio {
+      display: block;
+      margin: 10px auto;
+    }
+
+    label {
+      font-weight: 600;
+      color: #8d6e63;
+    }
+  </style>
+</head>
+<body>
+  <div class="task-container">
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="task-number">Task 4 of 25</div>
+
+    <h1>🗑️ Litter Treasure Hunt</h1>
+    <p>
+      Time for an adventure! Go outdoors (with an adult’s help) and collect litter around your home, school, or park.  
+      Let’s make our planet sparkle again! ✨
+    </p>
+
+    <div class="proof-section">
+      <label for="count">🧺 How many litter items did you collect?</label>
+      <input type="number" id="count" placeholder="Enter number of items" min="1" />
+
+      <label for="audio">🎤 Record a short voice note (what did you learn?)</label>
+      <input type="file" id="audio" accept="audio/*" capture />
+
+      <button id="complete-btn" disabled>✅ Mark as Done</button>
+      <div class="emoji" id="celebration">🎉 You’re a Litter Hero! 🌍</div>
+    </div>
+  </div>
+
+  <script>
+    const countInput = document.getElementById('count');
+    const audioInput = document.getElementById('audio');
+    const completeBtn = document.getElementById('complete-btn');
+    const celebration = document.getElementById('celebration');
+    const progressBar = document.getElementById('progress-bar');
+
+    function checkCompletion() {
+      const hasCount = countInput.value > 0;
+      const hasAudio = audioInput.files.length > 0;
+      completeBtn.disabled = !(hasCount && hasAudio);
+    }
+
+    countInput.addEventListener('input', checkCompletion);
+    audioInput.addEventListener('change', checkCompletion);
+
+    completeBtn.addEventListener('click', () => {
+      progressBar.style.width = "16%";
+      celebration.style.display = "block";
+      completeBtn.textContent = "🌍 Task Completed!";
+      completeBtn.disabled = true;
+      completeBtn.style.background = "linear-gradient(90deg, #66bb6a, #81c784)";
+    });
+  </script>
+</body>
+</html>
