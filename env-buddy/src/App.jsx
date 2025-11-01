@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import NgoAdmin from "./pages/NgoAdmin";
 import Events from "./pages/Events";
+import SignUp from "./pages/signup";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="analytics" element={<div>Analytics</div>} />
         <Route path="info" element={<div>Info Hub</div>} />
         <Route path="ngo" element={<NgoAdmin />} />
+        <Route path="/signup/:role" element={<SignUp />} />
       </Route>
     </Routes>
   );
