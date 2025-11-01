@@ -12,7 +12,7 @@ export default function SignUp() {
 
   // Change input values
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSignup = () => {
@@ -72,8 +72,12 @@ export default function SignUp() {
                 </Button>
 
                 <Typography variant="body2" textAlign="center">
-                  Already have an account?{" "}
-                  <Link to="/signin">Login</Link>
+                  <Link
+                    to={`/signin?type=${role}`}
+                    style={{ textDecoration: "none", color: "inherit", fontWeight: 600 }}
+                  >
+                    Already have an account? Login
+                  </Link>
                 </Typography>
               </Stack>
             </Stack>
