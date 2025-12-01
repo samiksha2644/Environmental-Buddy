@@ -11,7 +11,7 @@ export default function App() {
       <Route element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="signin" element={<SignIn />} />
-        <Route path="learning" element={<div>Quiz & Learning</div>} />
+        <Route path="learning" element={<div>Quiz</div>} />
         <Route path="tasks" element={<div>Tasks</div>} />
         <Route path="events" element={<Events />} />
         <Route path="analytics" element={<div>Analytics</div>} />
