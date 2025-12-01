@@ -11,7 +11,7 @@ const navItems = [
   { label: 'Quiz', to: '/learning' },
   { label: 'Tasks', to: '/tasks' },
   { label: 'Events', to: '/events' },
-  // { label: 'Analytics', to: '/analytics' },
+  { label: 'Analytics', to: '/analytics' },
   { label: 'Info Hub', to: '/info' },
   { label: 'Login', to: '/signin' },
 ];
