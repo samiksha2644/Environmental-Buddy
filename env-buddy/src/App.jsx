@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import NgoAdmin from "./pages/NgoAdmin";
 import Events from "./pages/Events";
+import Analytics from "./pages/Analytics"; 
 import SignUp from "./pages/signup";
 import Info from "./pages/Info";
 import TopicDetail from "./pages/TopicDetail";
