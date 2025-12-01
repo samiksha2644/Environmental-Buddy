@@ -11,6 +11,7 @@ const questions = [
 ];
 
 const TOTAL_CORRECT_NEEDED = 8;
+
 export default function QuizChat() {
   const theme = useTheme(); // access current theme colors
   const [chat, setChat] = useState([{ from: "buddy", text: questions[0].q }]);

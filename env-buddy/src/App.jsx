@@ -4,6 +4,10 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import NgoAdmin from "./pages/NgoAdmin";
 import Events from "./pages/Events";
+import SignUp from "./pages/signup";
+import Info from "./pages/Info";
+import TopicDetail from "./pages/TopicDetail";
+import QuizChat from "./pages/QuizChat";
 
 export default function App() {
   return (
@@ -15,8 +19,11 @@ export default function App() {
         <Route path="tasks" element={<div>Tasks</div>} />
         <Route path="events" element={<Events />} />
         <Route path="analytics" element={<div>Analytics</div>} />
-        <Route path="info" element={<div>Info Hub</div>} />
+        <Route path="info" element={<Info />} />
+        <Route path="info/:topic" element={<TopicDetail />} />
         <Route path="ngo" element={<NgoAdmin />} />
+        <Route path="/signup/:role" element={<SignUp />} />
+        <Route path="/quiz" element={<QuizChat />} />
       </Route>
     </Routes>
   );
