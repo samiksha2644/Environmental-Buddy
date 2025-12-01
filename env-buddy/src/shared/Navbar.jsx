@@ -8,10 +8,10 @@ import { useContext, useState } from 'react';
 import { ColorModeContext } from '../theme.jsx';
 
 const navItems = [
-  { label: 'Quiz & Learning', to: '/learning' },
+  { label: 'Quiz', to: '/learning' },
   { label: 'Tasks', to: '/tasks' },
   { label: 'Events', to: '/events' },
-  { label: 'Analytics', to: '/analytics' },
+  // { label: 'Analytics', to: '/analytics' },
   { label: 'Info Hub', to: '/info' },
   { label: 'Login', to: '/signin' },
 ];
